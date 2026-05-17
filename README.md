@@ -12,14 +12,14 @@ Pythonを用いて、ECサイトの売上CSVデータに対する\
 
 ## 1. 重複チェック
 
-- Order ID の重複検知
-- 重複件数の集計
-- 重複データのCSV出力
+- 完全重複データ検知
+- 分割注文候補検知
+- 重複データCSV出力
 
 ### チェック例
 
-- 同一注文IDが複数存在
-- 完全重複行の検知
+- 全列一致データ
+- 同一顧客・同日・同一商品の重複注文候補
 
 ---
 
@@ -50,6 +50,8 @@ Pythonを用いて、ECサイトの売上CSVデータに対する\
 
 ## 4. 売上分析
 
+- 月別売上推移分析
+- TOP商品分析
 - 州別売上ランキング
 - カテゴリ別売上分析
 - 地域別売上集計
@@ -61,40 +63,25 @@ Pythonを用いて、ECサイトの売上CSVデータに対する\
 
 ---
 
-## 5. HTMLレポート出力
-
-分析結果・監査結果をHTML形式で出力します。
-
-### 出力内容
-
-- エラー件数
-- 異常一覧
-- 売上ランキング
-- グラフ表示
-
----
 
 # ディレクトリ構成
 
 ```text
-sales-audit-tool/
-├── data/
-│   └── sales.csv
+sales-tools/
+├── sample_data/
+│   └── train.csv
 │
 ├── output/
-│   ├── duplicate_orders.csv
-│   ├── invalid_dates.csv
-│   ├── null_report.csv
-│   └── report.html
+│   ├── analysis/
+│   └── date_check/
 │
 ├── check_duplicates.py
 ├── check_date_errors.py
-├── check_nulls.py
 ├── sales_analysis.py
-├── generate_report.py
 ├── main.py
 │
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
 
@@ -104,9 +91,6 @@ sales-audit-tool/
 
 - Python
 - pandas
-- matplotlib
-- plotly
-- jinja2
 
 ---
 
